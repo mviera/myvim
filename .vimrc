@@ -14,11 +14,51 @@ Plug 'rodjek/vim-puppet'
 " Add plugins to &runtimepath
 call plug#end()
 
-" General config
+"
+" GENERAL CONFIG
+"
+set number
 set nocompatible
 filetype plugin on
+set autoindent " always set autoindenting on
+set backupcopy=yes " Keep a backup file
+set viminfo='20,\"50 " read/write a .viminfo file, don't store more than 50
+set history=100 " keep 50 lines of command line history
+set ruler " show the cursor position all the time
+set expandtab
+set tabstop=2
+set listchars=tab:>.,trail:-,extends:>,precedes:<
+set list
+set encoding=utf-8
+set shiftwidth=2
 
-" Pencil config
+" Set leader to comma.
+let mapleader = ","
+let maplocalleader = ","
+
+" Don't redraw screen while executing macros.
+set nolazyredraw
+
+" Flexible backspace: allow backspacing over autoindent, line breaks, start of insert.
+set backspace=indent,eol,start
+
+" Set title of window according to filename.
+set title
+
+" Break line at 80 chars
+set tw=90
+
+" Search
+set hlsearch       " highlight matches
+set incsearch      " incremental searching
+set ignorecase     " searches are case insensitive...
+set smartcase      " ... unless they contain at least one capital letter
+
+
+"
+" PLUGINS CONFIG.
+"
+" Pencil
 augroup pencil
   autocmd!
   autocmd FileType markdown,mkd call pencil#init()
@@ -52,3 +92,16 @@ let g:airline_theme = 'pencil'
 " gitgutter config
 set updatetime=250
 let g:gitgutter_max_signs = 500  " default value
+
+" airlines preferences
+set t_Co=256
+set laststatus=2  " always show the status bar
+let g:airline_enable_syntastic=1
+let g:airline_powerline_fonts=1
+" unicode symbols
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '◀'
+let g:airline_linecolumn_prefix = '␤ '
+let g:airline_fugitive_prefix = '⎇ '
+let g:airline_paste_symbol = 'ρ'
+let g:airline_readonly_symbol = '✗'
