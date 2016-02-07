@@ -19,6 +19,7 @@ call plug#end()
 "
 set number
 set nocompatible
+set nofoldenable
 filetype plugin on
 set autoindent " always set autoindenting on
 set backupcopy=yes " Keep a backup file
