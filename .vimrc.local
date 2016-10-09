@@ -1,0 +1,3 @@
+" gitgutter config
+set updatetime=250
+let g:gitgutter_max_signs = 500  " default value
